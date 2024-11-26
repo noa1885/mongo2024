@@ -11,7 +11,7 @@ db.books.update({title:/^b/i}
 //3
 db.books.updateOne({status:'PUBLISH',publishedDate:{$exists:false}},
 {$currentDate:{publishedDate:true}}
-)
+)  
 
 //5
 //db.books.updateOne({categories:{$elemMatch:/java/i}},
