@@ -1,0 +1,35 @@
+//use books;
+
+// 1
+db.books.find().pretty();
+
+// 2
+db.books.find({
+  $or: [
+    { title: { $regex: /C#/i } },
+    { title: { $regex: /Java/i } },
+    { title: { $regex: /Python/i } }
+  ]
+});;;
+//3
+db.books.find({ isbn: { $nin: [19, 1884777384] } });
+
+//4
+db.book.find({
+  $nor: [
+    { isbn: /19^b/ },
+    { title: /mongo/ },
+    { pageCount: { $lt: 200 } }
+  ]
+});
+
+// 5
+db.book.find({
+  status: { $not: /PUBLISH/ }
+});
+
+    //7
+   db.book.find({
+     thumbnailUrl: { $exists: false }
+   })
+   
